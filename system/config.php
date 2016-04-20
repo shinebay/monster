@@ -1,0 +1,62 @@
+<?php
+/*
+ * global configure file
+ */
+    $config=array(
+        'site'=>'',//站点网址，如:http://www.abc.com 支持二级目录
+        'public'=>'',//站点静态文件目录
+        'shortname'=>'Monster',//站点名称简写
+        'db'=>array(
+            'db_host'=>'localhost',
+            'db_name'=>'monster',//MySQL数据库名称，默认为monster
+            'db_username'=>'',//MySQL数据库用户名
+            'db_password'=>'',//MySQL数据库密码
+            'db_prefix'=>'ms_',//MySQL数据表前缀，默认为ms_
+            'db_port'=>3306,
+            'db_charset'=>'utf8'
+        ),
+        'router'=>array(//站点全局URL路由配置，其中“!”代表字符串型变量，“#”代表整型变量
+            '/'=>'main/index',
+            '/<!type>/<#last_id>-<#direction>'=>'main/threads',
+            '/category/<#category_id>-<#last_id>-<#direction>'=>'main/category',
+            '/<#thread_id>-<#last_id>-<#direction>'=>'thread/view',
+            '/t/search/<!segment>-<#last_id>-<#direction>'=>'thread/search',
+            '/user/<#uid>'=>'user/index',
+            '/user/<#uid>/thread-<#last_id>-<#direction>'=>'user/thread',
+            '/user/<#uid>/collect-<#last_id>-<#direction>'=>'user/collect',
+            '/user/<#uid>/reply-<#last_id>-<#direction>'=>'user/reply',
+            '/profile'=>'profile/index',
+            '/profile/avatar'=>'profile/avatar',
+            '/profile/collect-<#last_id>-<#direction>'=>'profile/collect',
+            '/profile/thread-<#last_id>-<#direction>'=>'profile/thread',
+            '/profile/reply-<#last_id>-<#direction>'=>'profile/reply',
+            '/profile/setting'=>'profile/setting',
+            '/profile/notifications-<#last_id>-<#direction>'=>'profile/notifications',
+            '/profile/msg'=>'profile/msg',
+        ),
+        'tietuku_token'=>'',//贴图库Token
+        'cookie_prefix'=>'ms_',//站点cookie前缀
+        'key'=>'fhi28YHiut65hr2oy9hu4899283hIT812HU0gyt7ff546FO2SSDUih78Tgi',//站点cookie混淆码，可输入随机字符
+        'theme'=>'default',//站点模板文件夹名称，当自行添加新模板时，可在此填写新模板文件夹名称
+        'show_login_captcha'=>true,//是否显示登录验证码
+        'show_register_captcha'=>true,//是否显示注册验证码
+        'close_register'=>false,//是否关闭站点注册
+        'reply_live_time'=>60,//对指定帖子回复间隔时间，单位：秒
+        'global_reply_live_time'=>10,//对全局回复的间隔时间，单位：秒
+        'thread_add_interval_time'=>300,//全局发帖频率间隔时间，单位：秒
+        'thread_per_page'=>6,//每页显示帖子数
+        'reply_per_page'=>10,//每页显示回复数
+        'msg_record_queue'=>10,//用户在msg_record_queue次发送私信行为中，平均发送时间低于msg_send_interval_time(秒)则不能发送私信
+        'msg_send_interval_time'=>60,//用户在msg_record_queue次发送私信行为中，平均发送时间低于msg_send_interval_time(秒)则不能发送私信，单位：秒
+        'default_big_avatar'=>'http://i3.tietuku.cn/a1c072e7db9e3171.png',//默认大头像文件
+        'default_small_avatar'=>'http://i1.tietuku.cn/790079f4c958331f.png',//默认小头像文件
+        'category'=>array(//站点分类名称数组
+            1=>'猿类杂谈',
+            2=>'发现与创造',
+            3=>'vps及服务器',
+            4=>'招聘推广',
+            5=>'SSDB',
+            6=>'bug反馈'
+        )
+    );
+?>

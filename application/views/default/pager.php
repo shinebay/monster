@@ -1,0 +1,45 @@
+<?php
+function paginate($arr,$direction,$last_id,$page_list_num){
+    if($direction==0){
+        $prev_has_more=count(array_keys($arr))==($page_list_num+1)?true:false;
+        $arr=array_slice($arr,0,$page_list_num);
+        $arr=array_reverse($arr,true);
+    }else{
+        $next_has_more=count(array_keys($arr))==($page_list_num+1)?true:false;
+        $arr=array_slice($arr,0,$page_list_num);
+    }
+    $prev='';
+    $next='';
+    if(($direction==1&&$last_id>0)||($direction==0&&$prev_has_more)){
+        reset($arr);
+        $prev=get_number(key($arr));
+    }
+    if(($direction==1&&$next_has_more)||($direction==0&&$last_id>0)){
+        end($arr);
+        $next=get_number(key($arr));
+    }
+    return array(
+        'arr'=>$arr,
+        'prev'=>$prev,
+        'next'=>$next
+    );
+}
+
+/*if($direction==0){
+    $prev_has_more=count(array_keys($reply))==($this->config['reply_per_page']+1)?true:false;
+    $reply=array_slice($reply,0,$this->config['reply_per_page']);
+    $reply=array_reverse($reply,true);
+}else{
+    $next_has_more=count(array_keys($reply))==($this->config['reply_per_page']+1)?true:false;
+    $reply=array_slice($reply,0,$this->config['reply_per_page']);
+}
+$prev='';
+$next='';
+if(($direction==1&&$last_id>0)||($direction==0&&$prev_has_more)){
+    reset($reply);
+    $prev=url('thread/view',array('category_name'=>urldecode($category_name),'thread_title'=>urldecode($thread_title),'thread_id'=>$thread_id,'last_id'=>str_replace('r','',key($reply)),'direction'=>0));
+}
+if(($direction==1&&$next_has_more)||($direction==0&&$last_id>0)){
+    end($reply);
+    $next=url('thread/view',array('category_name'=>urldecode($category_name),'thread_title'=>urldecode($thread_title),'thread_id'=>$thread_id,'last_id'=>str_replace('r','',key($reply)),'direction'=>1));
+}*/
