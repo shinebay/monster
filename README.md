@@ -47,10 +47,15 @@
  - 由于Monster全局采用贴图库作为全站公用图片外链，需在[贴图库][11]申请贴图库的token，申请完毕后，按照system/config.php中的注释配置好config.php，Monster便配置完成了。
  - 请不要用windows主机运行爱码士，系统伪静态规则，Apache下直接使用系统自带的.htaccess文件，nginx下请在nginx配置文件中写入：
  - location / {
+ 
  if (!-e $request_filename) {
+
    rewrite  ^(.*)$  /index.php?s=$1  last;
+   
    break;
+   
     }
+    
 }
 
 
