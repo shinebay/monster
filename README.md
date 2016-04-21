@@ -24,6 +24,7 @@
  - jquery.jscrollbar-2.0.0.min.js，私信页面时的滚动条替换[https://github.com/daiying-zhang/jquery.jscrollbar][4]
  - jquery.timeago.js，私信页面时间友好化显示，[http://timeago.yarp.com][5]
  - switchery.min.js，注册登录时的checkbox替换[http://abpetkov.github.io/switchery/][6]
+ - tipsy，用于鼠标hover时的提示[http://onehackoranother.com/projects/jquery/tipsy/][12]
 
 **后端：**
   架设一个常规的简单论坛，其实大家第一反应也就是MySQL中建立4个表，user表存储用户信息，thread表存储帖子信息，reply表存储回复信息，notification表存储用户通知信息，一个论坛后端数据库就做完了，配合php写点基础验证逻辑，加上个memcache缓存帖子、回复、用户等信息，一个最简单的论坛就架设成了。我这次便想尝试一次全新的数据架构：用NoSQL作为主存储去编写一个论坛，最终选中了SSDB作为全站的主存储，SSDB（[http://ssdb.io/][7]）简单的说就是一个存储在硬盘上的redis，由于其和redis有相同的使用协议，但内核基于Google的leveldb进行封装，支持十亿级别的数据存储，因而相对于redis这样的内存性数据库而言，其优势不言而喻。
@@ -70,3 +71,4 @@
   [9]: http://blog.sina.com.cn/s/blog_593af2a70102uw55.html
   [10]: http://ssdb.io/docs/zh_cn/install.html
   [11]: http://www.kekaoyun.com
+  [12]: http://onehackoranother.com/projects/jquery/tipsy/
