@@ -33,7 +33,7 @@
   
   相对于mysql，nosql从来都是以性能彪悍著称，受限于作者本人电脑SSD硬盘容量的限制，没能测试千万级帖子的表现，测试中系统生成随机汉字的帖子，每个帖子随机分配3至5个充满随机汉字的回复，在灌满了约150W个帖子和600W个回复后，其性能还是非常彪悍，帖子和回复都是秒开。但在一些特定功能上，nosql还是暴露出了其缺陷，如帖子模糊搜索和根据用户名获取用户uid等功能，这方面还是要借助于MySQL，因此爱码士建立了两个MySQL表：user表用于存储用户信息，以便在注册时验证用户名存在、验证邮箱是否存在、根据用户名获取uid，thread表用于帖子标题分词，以便于站内的MATCH AGAINST搜索
   
-  在站内搜索方面上，部分网友觉得站内搜索太慢，是不是数据库的问题，在这里说明一下，爱码士的分词采用的是[http://www.pullword.com/][8]的在线分词结果，相对于SCWS这类分词，pullword每天爬行各种预料，在分词结果上可以说是与时俱进，时刻保持着最新的词语结果，可以参见作者这篇博客[http://blog.sina.com.cn/s/blog_593af2a70102uw55.html][9]，因此爱码士抛弃了SCWS转向pullword，发帖时，系统先进行分词处理，在站内搜索时，系统要分两步进行，先Ajax后端调用pullword api对搜索词进行分词，分词后再对mysql thread表进行MATCH AGAINST处理，因此，时间就耗在远程调用pullword api上，当然也可以换成SCWS时间更快，不过感觉站内搜索还是很鸡肋吧，大家都用site Google命令是不是
+  在站内搜索方面上，部分网友觉得站内搜索太慢，是不是数据库的问题，在这里说明一下，爱码士的分词采用的是[http://www.pullword.com/][8]的在线分词结果，相对于SCWS这类分词，pullword每天爬行各种语料，在分词结果上可以说是与时俱进，时刻保持着最新的词语结果，可以参见作者这篇博客[http://blog.sina.com.cn/s/blog_593af2a70102uw55.html][9]，因此爱码士抛弃了SCWS转向pullword，发帖时，系统先进行分词处理，在站内搜索时，系统要分两步进行，先Ajax后端调用pullword api对搜索词进行分词，分词后再对mysql thread表进行MATCH AGAINST处理，因此，时间就耗在远程调用pullword api上，当然也可以换成SCWS时间更快，不过感觉站内搜索还是很鸡肋吧，大家都用site Google命令是不是
   
   自己认为自己写的php框架才是全世界最好的php框架，爱码士也是基于自己写的一个很tiny的php框架搭建而成的，系统全局用index.php作为唯一入口，system文件夹中common.php作为全局公用函数，config.php为全局公共配置文件，controller.php为全局公用所继承的父controller，model.php为全局公用所继承的父model，public文件夹存放全站静态文件，application文件夹中controllers文件夹包含全局各种控制文件，db文件夹包含mysql操作类和官方的ssdb类，models文件夹包含全局各种model文件，thumb文件夹用于头像的裁剪的类，views文件夹存放全站模板
   
