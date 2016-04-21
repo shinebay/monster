@@ -143,6 +143,7 @@ class accountController extends Controller
         setcookie($this->config['cookie_prefix'].'avatar_small','',time()-1,'/');
         setcookie($this->config['cookie_prefix'].'avatar_big','',time()-1,'/');
         setcookie($this->config['cookie_prefix'].'user_info','',time()-1,'/');
+        setcookie($this->config['cookie_prefix'].'username','',time()-1,'/');
         header('location:'.$this->config['site']);
     }
 }
