@@ -1,13 +1,10 @@
 # monster
-## Monster为爱码士开源后的项目：[http://www.2ma4.com][1] ##
+## Monster为原爱码士开源后的项目，现作者转入自己新开发的一款域名构思头脑风暴的神器：[www.domainideasgenerator.com][1] ##
 
 
 ----------
 
 
-## 建设爱码士的初衷 ##
-  爱码士是我去年一个偶然的想法，想要架设一个全新的面向极客和码农的论坛，一直觉得中国极客和码农众多，却难以找到一个彼此能够相互学习交流的地方，于是，我花了半年的时间编写了爱码士这个论坛。我希望这个论坛就如它的名字一样，聚集了所有爱代码的人士，一起学习，一起交流，一起分享，一起发现，一起进步。但毕竟我是一个只会写代码和搞设计的宅男，在运营推广上肯定是弱项，如果你热爱爱码士，可以向周围同事宣传本站:)。
-  为达到一种帖子内热情交流的氛围，我参考了很多种盖楼设计，比如经典的网易盖楼模式，以及disqus的缩进式子回复等等，这些都有一个缺点，就是逐渐向内缩进会塌楼，印象中网易在盖到七十楼时就塌楼了，因此我设计了一种新颖的盖楼模式。
 
 
 ----------
@@ -60,7 +57,7 @@
 }
 
 
-  [1]: http://www.2ma4.com
+  [1]: http://www.domainideasgenerator.com
   [2]: https://plugins.jquery.com/cropbox/
   [3]: https://github.com/devbridge/jQuery-Autocomplete
   [4]: https://github.com/daiying-zhang/jquery.jscrollbar
