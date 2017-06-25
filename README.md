@@ -1,8 +1,4 @@
-# monster
-## Monster为原爱码士开源后的项目，现作者转入自己新开发的一款域名构思头脑风暴的神器：[www.domainideasgenerator.com][1] ##
 
-
-----------
 
 
 
